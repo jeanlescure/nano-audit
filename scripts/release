@@ -6,4 +6,6 @@ standard-version || exit 2
 
 git push origin main --follow-tags || exit 3
 
-npm publish
+./scripts/build || exit 4
+
+# npm publish
