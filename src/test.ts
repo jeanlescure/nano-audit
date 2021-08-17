@@ -8,7 +8,7 @@ const firstFn = () => {
   const auditResult = audit(auditName, `firstFn`);
   const startedAt = Date.now();
 
-  while ((Date.now() - startedAt) < 1000) {}
+  while ((Date.now() - startedAt) < 300) {}
 
   auditResult.end();
 };
@@ -32,7 +32,7 @@ const fourthFn = () => {
   const startedAt = Date.now();
 
   setTimeout(() => {
-    while ((Date.now() - startedAt) < 1000) {}
+    while ((Date.now() - startedAt) < 300) {}
 
     auditResult.end();
   });
@@ -50,6 +50,6 @@ secondFn();
 thirdFn();
 
 setTimeout(fourthFn, 100);
+setTimeout(fourthFn, 150);
 setTimeout(fourthFn, 200);
-setTimeout(fourthFn, 300);
-setTimeout(fourthFn, 400);
+setTimeout(fourthFn, 250);
