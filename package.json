@@ -7,6 +7,9 @@
   "repository": "https://github.com/jeanlescure/nano-audit",
   "author": "Jean M. Lescure",
   "license": "Apache-2.0",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "scripty",
     "test": "scripty",
