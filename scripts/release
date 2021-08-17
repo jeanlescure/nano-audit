@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+./scripts/test || exit 1
+
+standard-version || exit 2
+
+git push origin main --follow-tags || exit 3
+
+npm publish

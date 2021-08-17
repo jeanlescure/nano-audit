@@ -9,8 +9,9 @@
   "license": "Apache-2.0",
   "scripts": {
     "dev": "scripty",
+    "test": "scripty",
     "build": "scripty",
-    "release": "standard-version"
+    "release": "scripty"
   },
   "devDependencies": {
     "@types/node": "^16.6.1",
