@@ -61,25 +61,29 @@ $ NANO_AUDIT=TRUE yarn start
 
 ## Output
 
-```ts
-// ./my-audit.map.audit
-// fn-depth | fn-name
-000000 > firstFn
-000000 > secondFn
-000001 >> firstFn
-000000 > thirdFn
-000001 >> secondFn
-000002 >>> firstFn
+```bash
+# ./my-audit.map.audit
+ID      	G_LVLS	FN_LVL	T_STR
+611b2f53	000001	000000	> firstFn
+611b2f54	000001	000000	> secondFn
+611b2f55	000002	000001	>> firstFn
+611b2f56	000001	000000	> thirdFn
+611b2f57	000002	000001	>> secondFn
+611b2f58	000003	000002	>>> firstFn
 
-// ./my-audit.time.audit
-// fn-depth | fn-name | duration-ms
-000000 - firstFn 301
-000001 - firstFn 300
-000000 - secondFn 300
-000002 - firstFn 300
-000001 - secondFn 302
-000000 - thirdFn 302
+# ./my-audit.time.audit
+ID      	G_LVLS	FN_LVL	T_STR	DURATION
+611b2f53	000000	000000	firstFn	301
+611b2f55	000001	000001	firstFn	300
+611b2f54	000000	000000	secondFn	300
+611b2f58	000002	000002	firstFn	300
+611b2f57	000001	000001	secondFn	302
+611b2f56	000000	000000	thirdFn	302
 
+# NOTE: in the last line of the `.time.audit` files,
+#       G_LVLS should ALWAYS end in 000000
+#       otherwise it means that an audit failed to
+#       call it's `.end()` method
 ```
 
 ## Author Notes
