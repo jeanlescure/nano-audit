@@ -16,10 +16,13 @@ export default class NanoAudit {
     NanoAudit.instances[auditName] = this;
   }
 
-  audit(auditName: string, trackingString: string) {
+  audit(trackingString: string) {
     if (process.env.NANO_AUDIT === 'TRUE') {
       const naInstance = this;
       naInstance.auditLevel++;
+
+      const { auditName } = naInstance;
+
       const level = naInstance.auditLevel;
       const startTime = Date.now();
 

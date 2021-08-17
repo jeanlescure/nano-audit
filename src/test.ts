@@ -5,7 +5,7 @@ const auditName = 'test';
 const {audit} = new NanoAudit(auditName);
 
 const firstFn = () => {
-  const auditResult = audit(auditName, `firstFn`);
+  const auditResult = audit(`firstFn`);
   const startedAt = Date.now();
 
   while ((Date.now() - startedAt) < 300) {}
@@ -14,21 +14,21 @@ const firstFn = () => {
 };
 
 const secondFn = () => {
-  const auditResult = audit(auditName, 'secondFn');
+  const auditResult = audit('secondFn');
 
   firstFn();
   auditResult.end();
 };
 
 const thirdFn = () => {
-  const auditResult = audit(auditName, 'thirdFn');
+  const auditResult = audit('thirdFn');
 
   secondFn();
   auditResult.end();
 };
 
 const fourthFn = () => {
-  const auditResult = audit(auditName, `fourthFn`);
+  const auditResult = audit(`fourthFn`);
   const startedAt = Date.now();
 
   setTimeout(() => {
@@ -45,7 +45,7 @@ setTimeout(firstFn, 100);
 
 secondFn();
 
-[...Array(99).keys()].map((n) => audit(auditName, `xFn${n}`)).forEach((a) => a.end());
+[...Array(99).keys()].map((n) => audit(`xFn${n}`)).forEach((a) => a.end());
 
 thirdFn();
 
