@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-export default class NanoAudit {
+class NanoAudit {
   private static instances: {[k: string]: NanoAudit} = {};
   auditName: string;
   auditLevel: number = -1;
@@ -14,17 +14,19 @@ export default class NanoAudit {
       return NanoAudit.instances[auditName];
     }
 
-    fs.writeFileSync(
-      `${auditName}.map.audit`,
-      `ID      \tG_LVLS\tFN_LVL\tT_STR\n`,
-      { flag: 'a+' },
-    );
+    if (process.env.NANO_AUDIT === 'TRUE') {
+      fs.writeFileSync(
+        `${auditName}.map.audit`,
+        `ID      \tG_LVLS\tFN_LVL\tT_STR\n`,
+        { flag: 'a+' },
+      );
 
-    fs.writeFileSync(
-      `${this.auditName}.time.audit`,
-      `ID      \tG_LVLS\tFN_LVL\tT_STR\tDURATION\n`,
-      { flag: 'a+' },
-    );
+      fs.writeFileSync(
+        `${this.auditName}.time.audit`,
+        `ID      \tG_LVLS\tFN_LVL\tT_STR\tDURATION\n`,
+        { flag: 'a+' },
+      );
+    }
 
     NanoAudit.instances[auditName] = this;
   }
@@ -81,3 +83,7 @@ export default class NanoAudit {
     };
   };
 }
+
+export default NanoAudit;
+
+module.exports = NanoAudit;
