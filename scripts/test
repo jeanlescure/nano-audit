@@ -1,3 +1,4 @@
 #! /usr/bin/env bash
 
+rm -f *.audit
 ts-node src/test.ts

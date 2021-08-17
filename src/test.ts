@@ -27,33 +27,29 @@ const thirdFn = () => {
   auditResult.end();
 };
 
-// const fourthFn = () => {
-//   const auditResult = audit(auditName, `fourthFn`);
-//   const startedAt = Date.now();
+const fourthFn = () => {
+  const auditResult = audit(auditName, `fourthFn`);
+  const startedAt = Date.now();
 
-//   setTimeout(() => {
-//     while ((Date.now() - startedAt) < 300) {}
+  setTimeout(() => {
+    while ((Date.now() - startedAt) < 300) {}
 
-//     auditResult.end();
-//   });
-// };
+    auditResult.end();
+  });
+};
 
-// setTimeout(firstFn, 100);
-// setTimeout(firstFn, 100);
-// setTimeout(firstFn, 100);
-// setTimeout(firstFn, 100);
+setTimeout(firstFn, 100);
+setTimeout(firstFn, 100);
+setTimeout(firstFn, 100);
+setTimeout(firstFn, 100);
 
-// secondFn();
-
-// [...Array(99).keys()].map((n) => audit(auditName, `xFn${n}`)).forEach((a) => a.end());
-
-// thirdFn();
-
-// setTimeout(fourthFn, 100);
-// setTimeout(fourthFn, 150);
-// setTimeout(fourthFn, 200);
-// setTimeout(fourthFn, 250);
-
-firstFn();
 secondFn();
+
+[...Array(99).keys()].map((n) => audit(auditName, `xFn${n}`)).forEach((a) => a.end());
+
 thirdFn();
+
+setTimeout(fourthFn, 100);
+setTimeout(fourthFn, 150);
+setTimeout(fourthFn, 200);
+setTimeout(fourthFn, 250);

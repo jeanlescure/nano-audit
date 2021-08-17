@@ -49,6 +49,16 @@ secondFn();
 thirdFn();
 ```
 
+Make sure to set the NANO_AUDIT env var to TRUE:
+
+```ts
+// i.e. in your .env:
+NANO_AUDIT=TRUE
+
+// or when running your app:
+$ NANO_AUDIT=TRUE yarn start
+```
+
 ## Output
 
 ```ts
