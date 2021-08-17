@@ -1,6 +1,6 @@
 {
   "name": "nano-audit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Tiny utility to audit Javascript/Typescript tree of function calls and durations",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
