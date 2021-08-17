@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/jeanlescure/nano-audit/compare/v1.1.1...v1.2.0) (2021-08-17)
+
+
+### Features
+
+* add ability to track unended audits ([f1720a6](https://github.com/jeanlescure/nano-audit/commit/f1720a66e9be13825bdf3b887cf1f846599d2935))
+
 ### [1.1.1](https://github.com/jeanlescure/nano-audit/compare/v1.1.0...v1.1.1) (2021-08-17)
 
 
